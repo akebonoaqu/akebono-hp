@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="あけぼの鍼灸マッサージ院｜訪問マッサージ・鍼灸。健康保険適用。月・水・金に施設訪問。業務委託スタッフ募集中。">
+<title>あけぼの鍼灸マッサージ院｜訪問鍼灸マッサージ</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --c-main:#8b6f47;
+    --c-sub:#c9a876;
+    --c-bg:#faf7f2;
+    --c-text:#3a332a;
+    --c-white:#fff;
+    --c-accent:#d97757;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3",Meiryo,sans-serif;
+    color:var(--c-text);
+    background:var(--c-bg);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  img{max-width:100%;height:auto;display:block}
+  a{color:var(--c-main);text-decoration:none}
+
+  /* ヘッダー */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(250,247,242,.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #eae3d6;
+  }
+  .header-inner{
+    max-width:1100px;margin:0 auto;
+    padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-size:1.1rem;font-weight:700;color:var(--c-main);letter-spacing:.05em}
+  nav ul{list-style:none;display:flex;gap:20px}
+  nav a{font-size:.9rem;color:var(--c-text)}
+  nav a:hover{color:var(--c-main)}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--c-main);cursor:pointer}
+
+  /* ヒーロー */
+  .hero{
+    background:linear-gradient(135deg,#f5ecdc 0%,#e8d9bf 100%);
+    padding:80px 20px;
+    text-align:center;
+  }
+  .hero h1{
+    font-size:2rem;
+    color:var(--c-main);
+    margin-bottom:20px;
+    line-height:1.4;
+    font-weight:700;
+  }
+  .hero .sub{font-size:1.05rem;margin-bottom:30px;color:#5a4f3f}
+  .btn{
+    display:inline-block;
+    background:var(--c-main);color:var(--c-white);
+    padding:14px 32px;border-radius:50px;
+    font-size:1rem;font-weight:600;
+    transition:transform .2s,box-shadow .2s;
+    box-shadow:0 4px 12px rgba(139,111,71,.3);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(139,111,71,.4);color:#fff}
+  .btn-accent{background:var(--c-accent);box-shadow:0 4px 12px rgba(217,119,87,.3)}
+
+  /* セクション共通 */
+  section{padding:70px 20px}
+  .container{max-width:1000px;margin:0 auto}
+  .section-title{
+    text-align:center;
+    font-size:1.6rem;
+    color:var(--c-main);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .section-sub{text-align:center;color:#8a7c68;margin-bottom:40px;font-size:.95rem}
+
+  /* サービス */
+  .services{background:var(--c-white)}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .service-card{
+    background:var(--c-bg);
+    padding:30px 24px;
+    border-radius:12px;
+    text-align:center;
+    transition:transform .2s;
+  }
+  .service-card:hover{transform:translateY(-4px)}
+  .service-icon{font-size:2.5rem;margin-bottom:12px}
+  .service-card h3{color:var(--c-main);margin-bottom:10px;font-size:1.1rem}
+  .service-card p{font-size:.9rem;line-height:1.7}
+
+  /* 特徴 */
+  .features{background:var(--c-bg)}
+  .feature-list{display:grid;gap:20px}
+  .feature-item{
+    background:var(--c-white);
+    padding:24px;
+    border-radius:12px;
+    border-left:4px solid var(--c-sub);
+    display:flex;gap:20px;align-items:flex-start;
+  }
+  .feature-num{
+    flex-shrink:0;
+    width:44px;height:44px;
+    background:var(--c-main);color:var(--c-white);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+  }
+  .feature-text h3{color:var(--c-main);margin-bottom:6px;font-size:1.05rem}
+  .feature-text p{font-size:.95rem}
+
+  /* 対象者 */
+  .target{background:var(--c-white)}
+  .target-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;max-width:700px;margin:0 auto;
+  }
+  .target-item{
+    background:var(--c-bg);padding:16px 20px;
+    border-radius:8px;
+    font-size:.95rem;
+    display:flex;align-items:center;gap:10px;
+  }
+  .target-item::before{content:"✓";color:var(--c-accent);font-weight:700;font-size:1.1rem}
+
+  /* 料金 */
+  .price{background:var(--c-bg);text-align:center}
+  .price-box{
+    background:var(--c-white);
+    max-width:500px;margin:0 auto;
+    padding:40px 30px;
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(139,111,71,.1);
+  }
+  .price-box h3{color:var(--c-main);margin-bottom:20px}
+  .price-amount{
+    font-size:1.2rem;font-weight:700;color:var(--c-accent);
+    margin:16px 0;line-height:1.5;
+  }
+  .price-note{font-size:.85rem;color:#8a7c68;margin-top:16px}
+
+  /* 採用 */
+  .recruit{
+    background:linear-gradient(135deg,#8b6f47 0%,#6b5435 100%);
+    color:var(--c-white);
+  }
+  .recruit .section-title{color:var(--c-white)}
+  .recruit .section-sub{color:#e8d9bf}
+  .recruit-box{
+    background:rgba(255,255,255,.1);
+    padding:36px 28px;border-radius:16px;
+    max-width:700px;margin:0 auto;
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.2);
+  }
+  .recruit-box h3{font-size:1.3rem;margin-bottom:20px;text-align:center}
+  .recruit-list{list-style:none;margin-bottom:28px}
+  .recruit-list li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    display:flex;gap:14px;
+  }
+  .recruit-list li:last-child{border-bottom:none}
+  .recruit-label{
+    flex-shrink:0;width:90px;
+    color:#e8d9bf;font-size:.9rem;
+  }
+  .recruit-value{font-size:.95rem}
+  .recruit-cta{text-align:center}
+
+  /* お問い合わせ */
+  .contact{background:var(--c-white);text-align:center}
+  .contact-info{
+    max-width:500px;margin:0 auto;
+    background:var(--c-bg);
+    padding:36px 28px;border-radius:16px;
+  }
+  .contact-info p{margin:10px 0}
+  .contact-info strong{color:var(--c-main);font-size:1.3rem;display:block;margin-top:8px}
+
+  /* フッター */
+  footer{
+    background:#3a332a;color:#c9b896;
+    padding:30px 20px;text-align:center;
+    font-size:.85rem;
+  }
+
+  /* スマホ対応 */
+  @media(max-width:768px){
+    .hero{padding:60px 20px}
+    .hero h1{font-size:1.5rem}
+    .hero .sub{font-size:.95rem}
+    section{padding:50px 20px}
+    .section-title{font-size:1.35rem}
+    .service-grid{grid-template-columns:1fr;gap:16px}
+    .target-list{grid-template-columns:1fr}
+    .nav-toggle{display:block}
+    nav ul{
+      display:none;
+      position:absolute;top:100%;right:0;left:0;
+      background:var(--c-white);
+      flex-direction:column;
+      padding:16px 20px;
+      gap:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+    }
+    nav ul.open{display:flex}
+    nav a{display:block;padding:8px 0}
+    .feature-item{flex-direction:column;gap:10px}
+    .recruit-list li{flex-direction:column;gap:4px}
+    .recruit-label{width:auto;font-weight:600}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">あけぼの鍼灸マッサージ院</div>
+    <button class="nav-toggle" aria-label="メニュー">☰</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#features">特徴</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#recruit">採用</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>心と体に、やさしい時間を。<br>訪問鍼灸マッサージ</h1>
+  <p class="sub">外出が難しい方のご自宅・施設へお伺いします<br>健康保険適用で安心してご利用いただけます</p>
+  <a href="#contact" class="btn">無料相談・お問い合わせ</a>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">サービス内容</h2>
+    <p class="section-sub">ご利用者さまに寄り添った施術を提供します</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">🙌</div>
+        <h3>マッサージ</h3>
+        <p>血行促進・筋緊張の緩和・関節可動域の改善を目的とした医療マッサージ</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪡</div>
+        <h3>はり治療</h3>
+        <p>慢性的な痛みや神経痛に。国家資格を持つ施術者が丁寧に対応します</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>きゅう治療</h3>
+        <p>冷えや血行不良に。じんわりと温めて身体のバランスを整えます</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title">選ばれる理由</h2>
+    <p class="section-sub">訪問だからこそできる、寄り添いの施術</p>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-num">1</div>
+        <div class="feature-text">
+          <h3>健康保険適用</h3>
+          <p>医師の同意書があれば、あはき療養費制度でご利用いただけます。初回のご相談時に必要書類についても詳しくご案内します。</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">2</div>
+        <div class="feature-text">
+          <h3>ご自宅・施設へ訪問</h3>
+          <p>通院が困難な方のもとへお伺いします。移動の負担なく、慣れた環境でリラックスして施術を受けられます。</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">3</div>
+        <div class="feature-text">
+          <h3>国家資格者が担当</h3>
+          <p>あん摩マッサージ指圧師・はり師・きゅう師の有資格者が、お一人おひとりの状態に合わせた施術を行います。</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">4</div>
+        <div class="feature-text">
+          <h3>ケアマネ様・施設様との連携</h3>
+          <p>介護施設やケアマネジャー様との情報共有を大切にし、包括的なケアをサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="target">
+  <div class="container">
+    <h2 class="section-title">こんな方におすすめ</h2>
+    <p class="section-sub">ひとつでも当てはまる方は、お気軽にご相談ください</p>
+    <div class="target-list">
+      <div class="target-item">歩行が困難で通院できない</div>
+      <div class="target-item">関節の動きが悪くなってきた</div>
+      <div class="target-item">麻痺・拘縮がある</div>
+      <div class="target-item">筋力の低下を感じる</div>
+      <div class="target-item">神経痛・腰痛がつらい</div>
+      <div class="target-item">むくみ・冷えが気になる</div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="container">
+    <h2 class="section-title">料金について</h2>
+    <p class="section-sub">健康保険適用で、安心の料金設定</p>
+    <div class="price-box">
+      <h3>健康保険適用の場合</h3>
+      <p>医師の同意書をもとに、あはき療養費制度をご利用いただけます。</p>
+      <div class="price-amount">自己負担 1〜3割</div>
+      <p>※自己負担額は、ご加入の保険・所得に応じて異なります</p>
+      <p class="price-note">※交通費は別途ご負担いただきます<br>※詳細はお問い合わせください</p>
+    </div>
+  </div>
+</section>
+
+<section class="recruit" id="recruit">
+  <div class="container">
+    <h2 class="section-title">スタッフ募集中</h2>
+    <p class="section-sub">一緒に地域の健康を支えてくれる仲間を探しています</p>
+    <div class="recruit-box">
+      <h3>訪問マッサージ施術者（業務委託）</h3>
+      <ul class="recruit-list">
+        <li>
+          <span class="recruit-label">資格</span>
+          <span class="recruit-value">あん摩マッサージ指圧師／はり師／きゅう師</span>
+        </li>
+        <li>
+          <span class="recruit-label">勤務日</span>
+          <span class="recruit-value">月・水・金（週1日〜応相談）</span>
+        </li>
+        <li>
+          <span class="recruit-label">勤務時間</span>
+          <span class="recruit-value">午前〜午後（応相談）</span>
+        </li>
+        <li>
+          <span class="recruit-label">勤務先</span>
+          <span class="recruit-value">提携介護施設（1施設集中）</span>
+        </li>
+        <li>
+          <span class="recruit-label">報酬</span>
+          <span class="recruit-value">レセプト単価に基づく業務委託（詳細応相談）</span>
+        </li>
+        <li>
+          <span class="recruit-label">特徴</span>
+          <span class="recruit-value">移動負担が少なく、ご自身のペースで働けます。未経験・ブランクある方歓迎。</span>
+        </li>
+      </ul>
+      <div class="recruit-cta">
+        <a href="#contact" class="btn btn-accent">採用についてお問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p class="section-sub">施術のご相談・採用のご応募、お気軽にどうぞ</p>
+    <div class="contact-info">
+      <p>お電話でのお問い合わせ</p>
+      <strong>000-0000-0000</strong>
+      <p style="margin-top:20px">受付時間：月〜金 9:00〜18:00</p>
+      <p style="margin-top:16px;font-size:.9rem;color:#8a7c68">※施術中はお電話に出られない場合があります<br>留守番電話にメッセージをお残しください</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>あけぼの鍼灸マッサージ院</p>
+  <p style="margin-top:8px">&copy; 2026 Akebono Acupuncture & Massage</p>
+</footer>
+
+<script>
+  // ハンバーガーメニュー
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+
+</body>
+</html>
