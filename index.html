@@ -10,10 +10,13 @@
   :root{
     --c-main:#8b6f47;
     --c-sub:#c9a876;
-    --c-bg:#faf7f2;
+    --c-bg:#fdfaf3;
+    --c-bg-warm:#f7ede0;
     --c-text:#3a332a;
+    --c-text-sub:#6b5e4a;
     --c-white:#fff;
     --c-accent:#d97757;
+    --c-soft:#e9826a;
   }
   html{scroll-behavior:smooth}
   body{
@@ -47,40 +50,81 @@
 
   /* ヒーロー */
   .hero{
-    background:linear-gradient(135deg,#f5ecdc 0%,#e8d9bf 100%);
-    padding:80px 20px;
+    background:linear-gradient(135deg,#f7ede0 0%,#ecdcc0 60%,#e5d0ab 100%);
+    padding:90px 20px 100px;
     text-align:center;
+    position:relative;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at top,rgba(255,245,225,.5),transparent 60%);
+    pointer-events:none;
+  }
+  .hero>*{position:relative}
+  .hero-lead{
+    font-size:.95rem;color:var(--c-accent);
+    margin-bottom:16px;letter-spacing:.2em;
+    font-weight:500;
   }
   .hero h1{
-    font-size:2rem;
+    font-size:2.1rem;
     color:var(--c-main);
-    margin-bottom:20px;
-    line-height:1.4;
-    font-weight:700;
+    margin-bottom:24px;
+    line-height:1.6;
+    font-weight:600;
+    letter-spacing:.04em;
   }
-  .hero .sub{font-size:1.05rem;margin-bottom:30px;color:#5a4f3f}
+  .hero .sub{font-size:1.02rem;margin-bottom:36px;color:#5a4f3f;line-height:2}
+
+  /* 想い */
+  .philosophy{
+    background:var(--c-white);
+    padding:90px 20px;
+    text-align:center;
+  }
+  .philosophy-label{
+    color:var(--c-accent);letter-spacing:.3em;
+    font-size:.85rem;margin-bottom:16px;font-weight:500;
+  }
+  .philosophy .section-title{margin-bottom:50px;line-height:1.6}
+  .philosophy-text{
+    max-width:680px;margin:0 auto;
+    color:var(--c-text-sub);
+    line-height:2.2;font-size:1rem;
+  }
+  .philosophy-text p{margin-bottom:28px}
+  .philosophy-text p:last-child{margin-bottom:0}
+  .philosophy-close{
+    margin-top:40px !important;
+    padding-top:36px;
+    border-top:1px solid #ecdcc0;
+    color:var(--c-main);font-weight:500;
+  }
   .btn{
     display:inline-block;
-    background:var(--c-main);color:var(--c-white);
-    padding:14px 32px;border-radius:50px;
+    background:var(--c-accent);color:var(--c-white);
+    padding:16px 38px;border-radius:50px;
     font-size:1rem;font-weight:600;
     transition:transform .2s,box-shadow .2s;
-    box-shadow:0 4px 12px rgba(139,111,71,.3);
+    box-shadow:0 6px 18px rgba(217,119,87,.3);
+    letter-spacing:.06em;
   }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(139,111,71,.4);color:#fff}
-  .btn-accent{background:var(--c-accent);box-shadow:0 4px 12px rgba(217,119,87,.3)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(217,119,87,.4);color:#fff}
+  .btn-accent{background:var(--c-soft);box-shadow:0 4px 12px rgba(233,130,106,.3)}
 
   /* セクション共通 */
-  section{padding:70px 20px}
+  section{padding:80px 20px}
   .container{max-width:1000px;margin:0 auto}
   .section-title{
     text-align:center;
-    font-size:1.6rem;
+    font-size:1.65rem;
     color:var(--c-main);
-    margin-bottom:10px;
-    font-weight:700;
+    margin-bottom:12px;
+    font-weight:600;
+    letter-spacing:.04em;
+    line-height:1.6;
   }
-  .section-sub{text-align:center;color:#8a7c68;margin-bottom:40px;font-size:.95rem}
+  .section-sub{text-align:center;color:#8a7c68;margin-bottom:44px;font-size:.95rem;line-height:1.9}
 
   /* サービス */
   .services{background:var(--c-white)}
@@ -122,8 +166,75 @@
   .feature-text h3{color:var(--c-main);margin-bottom:6px;font-size:1.05rem}
   .feature-text p{font-size:.95rem}
 
+  /* 約束 */
+  .promise{background:var(--c-bg-warm)}
+  .promise-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;max-width:960px;margin:0 auto;
+  }
+  .promise-card{
+    background:var(--c-white);
+    padding:36px 28px;border-radius:20px;
+    text-align:center;
+    box-shadow:0 2px 12px rgba(139,111,71,.08);
+    position:relative;
+  }
+  .promise-number{
+    display:inline-block;
+    color:var(--c-accent);letter-spacing:.15em;
+    font-size:.8rem;font-weight:500;margin-bottom:12px;
+  }
+  .promise-card h3{
+    color:var(--c-main);
+    font-size:1.15rem;margin-bottom:16px;
+    line-height:1.6;font-weight:600;
+  }
+  .promise-card p{
+    font-size:.92rem;line-height:1.9;
+    color:var(--c-text-sub);
+  }
+
+  /* 初回の流れ */
+  .flow{background:var(--c-white)}
+  .flow-list{
+    max-width:720px;margin:0 auto;
+    position:relative;
+  }
+  .flow-item{
+    display:flex;gap:24px;
+    padding:24px 0;
+    align-items:flex-start;
+    position:relative;
+  }
+  .flow-item:not(:last-child)::after{
+    content:"";position:absolute;
+    left:22px;top:68px;bottom:-4px;
+    width:1px;background:#ecdcc0;
+  }
+  .flow-step{
+    flex-shrink:0;
+    width:44px;height:44px;
+    background:var(--c-bg-warm);
+    color:var(--c-accent);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:600;font-size:1.05rem;
+    border:2px solid var(--c-white);
+    box-shadow:0 0 0 1px #ecdcc0;
+    position:relative;z-index:1;
+  }
+  .flow-content h3{
+    color:var(--c-main);font-size:1.05rem;
+    margin-bottom:6px;font-weight:600;
+  }
+  .flow-content p{
+    font-size:.92rem;line-height:1.9;
+    color:var(--c-text-sub);
+  }
+
   /* 対象者 */
-  .target{background:var(--c-white)}
+  .target{background:var(--c-bg)}
   .target-list{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -182,8 +293,41 @@
   .recruit-value{font-size:.95rem}
   .recruit-cta{text-align:center}
 
+  /* FAQ */
+  .faq{background:var(--c-bg)}
+  .faq-list{max-width:720px;margin:0 auto;display:grid;gap:14px}
+  .faq-item{
+    background:var(--c-white);
+    border-radius:14px;
+    padding:20px 24px;
+    border:1px solid #f0e6d2;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    font-weight:600;color:var(--c-main);
+    font-size:1rem;line-height:1.7;
+    list-style:none;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{
+    content:"+";
+    color:var(--c-accent);
+    font-size:1.4rem;font-weight:400;
+    flex-shrink:0;
+    transition:transform .2s;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-answer{
+    margin-top:16px;padding-top:16px;
+    border-top:1px solid #f0e6d2;
+    font-size:.93rem;line-height:2;
+    color:var(--c-text-sub);
+  }
+
   /* お問い合わせ */
-  .contact{background:var(--c-white);text-align:center}
+  .contact{background:linear-gradient(180deg,var(--c-bg-warm),var(--c-white));text-align:center}
   .contact-info{
     max-width:500px;margin:0 auto;
     background:var(--c-bg);
@@ -223,6 +367,11 @@
     .feature-item{flex-direction:column;gap:10px}
     .recruit-list li{flex-direction:column;gap:4px}
     .recruit-label{width:auto;font-weight:600}
+    .promise-grid{grid-template-columns:1fr;gap:16px}
+    .philosophy-text{font-size:.95rem;line-height:2}
+    .philosophy-text br{display:none}
+    .hero h1 br{display:none}
+    .hero .sub br{display:none}
   }
 </style>
 </head>
@@ -234,9 +383,10 @@
     <button class="nav-toggle" aria-label="メニュー">☰</button>
     <nav>
       <ul id="menu">
-        <li><a href="#services">サービス</a></li>
-        <li><a href="#features">特徴</a></li>
-        <li><a href="#price">料金</a></li>
+        <li><a href="#philosophy">想い</a></li>
+        <li><a href="#services">施術</a></li>
+        <li><a href="#flow">ご利用の流れ</a></li>
+        <li><a href="#faq">Q&amp;A</a></li>
         <li><a href="#recruit">採用</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
@@ -245,30 +395,112 @@
 </header>
 
 <section class="hero">
-  <h1>心と体に、やさしい時間を。<br>訪問鍼灸マッサージ</h1>
-  <p class="sub">外出が難しい方のご自宅・施設へお伺いします<br>健康保険適用で安心してご利用いただけます</p>
+  <p class="hero-lead">住み慣れた、ご自宅で。</p>
+  <h1>心にも、体にも、<br>そっと寄り添う時間を。</h1>
+  <p class="sub">外出が難しい方のご自宅・施設へお伺いする、<br>訪問鍼灸マッサージ。<br>健康保険適用で、安心してご利用いただけます。</p>
   <a href="#contact" class="btn">無料相談・お問い合わせ</a>
+</section>
+
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <p class="philosophy-label">わたしたちの想い</p>
+    <h2 class="section-title">その方らしい生活を、<br>そばで支える。</h2>
+    <div class="philosophy-text">
+      <p>ご利用者さまが、住み慣れたご自宅で少しでも安心して過ごせるよう、<br>身体だけでなく、心にも寄り添う施術を大切にしています。</p>
+      <p>痛みや不調の軽減だけでなく、<br>「自分でできた」という感覚や、日々の小さな自信を積み重ねていけるよう、<br>関わることを意識しています。</p>
+      <p>また、ご家族や介護に関わる方々の負担や不安にも目を向け、<br>安心して任せていただける存在でありたいと考えています。</p>
+      <p class="philosophy-close">一人ひとりの状態や生活背景に合わせ、<br>その方らしい生活を支えることが、<br>わたしたちの訪問マッサージの役割です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="promise" id="promise">
+  <div class="container">
+    <h2 class="section-title">大切にしている、<br>三つのこと。</h2>
+    <p class="section-sub">ご本人・ご家族・ケアに関わる方。<br>すべての方に安心していただけるよう、心がけています。</p>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <span class="promise-number">ONE</span>
+        <h3>心に寄り添う施術</h3>
+        <p>身体の不調だけでなく、表情や言葉にも耳を傾けて。<br>その日のお気持ちに合わせた施術を心がけます。</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-number">TWO</span>
+        <h3>小さな自信を、<br>積み重ねる</h3>
+        <p>「自分でできた」という感覚を大切に。<br>日々のちいさな変化を、ご一緒に喜べる存在でありたいと思っています。</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-number">THREE</span>
+        <h3>ご家族の安心も、<br>一緒に</h3>
+        <p>介護に関わる方々の不安や負担にも目を向け、<br>安心して任せていただけるよう、こまやかに対応します。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="services" id="services">
   <div class="container">
-    <h2 class="section-title">サービス内容</h2>
-    <p class="section-sub">ご利用者さまに寄り添った施術を提供します</p>
+    <h2 class="section-title">ご提供している施術</h2>
+    <p class="section-sub">おひとりおひとりの状態に合わせて、やさしく行います</p>
     <div class="service-grid">
       <div class="service-card">
         <div class="service-icon">🙌</div>
         <h3>マッサージ</h3>
-        <p>血行促進・筋緊張の緩和・関節可動域の改善を目的とした医療マッサージ</p>
+        <p>血行促進、筋肉の緊張をやわらげ、関節が動きやすくなるよう整えます。力加減は、その日のお身体に合わせて。</p>
       </div>
       <div class="service-card">
         <div class="service-icon">🪡</div>
         <h3>はり治療</h3>
-        <p>慢性的な痛みや神経痛に。国家資格を持つ施術者が丁寧に対応します</p>
+        <p>慢性的な痛みや神経痛に。髪の毛ほどの細さの鍼を使い、痛みが少ないよう丁寧に施術します。</p>
       </div>
       <div class="service-card">
         <div class="service-icon">🔥</div>
         <h3>きゅう治療</h3>
-        <p>冷えや血行不良に。じんわりと温めて身体のバランスを整えます</p>
+        <p>冷えや血行不良に。じんわりとした温かさで、身体の内側からバランスを整えていきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow" id="flow">
+  <div class="container">
+    <h2 class="section-title">ご利用までの流れ</h2>
+    <p class="section-sub">はじめての方も、どうぞご安心ください</p>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="flow-step">1</div>
+        <div class="flow-content">
+          <h3>お問い合わせ</h3>
+          <p>お電話・メールにて、お気軽にご相談ください。ご本人・ご家族・ケアマネジャー様、どなたからのご連絡でも大丈夫です。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step">2</div>
+        <div class="flow-content">
+          <h3>無料相談・お身体の確認</h3>
+          <p>現在のお身体の状態・生活の状況・ご希望などをお伺いします。保険適用についてもご案内いたします。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step">3</div>
+        <div class="flow-content">
+          <h3>医師の同意書の取得</h3>
+          <p>健康保険でのご利用に必要な書類の取得をサポートします。かかりつけ医への依頼方法もお伝えします。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step">4</div>
+        <div class="flow-content">
+          <h3>訪問・施術スタート</h3>
+          <p>ご都合のよい曜日・時間を相談のうえ、定期的にご訪問いたします。体調の変化を伺いながら、無理のない施術を行います。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step">5</div>
+        <div class="flow-content">
+          <h3>継続のご相談</h3>
+          <p>定期的にお身体の状態を振り返り、施術内容を調整します。ご家族・ケアマネジャー様とも連携して、最適なケアを続けていきます。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -276,35 +508,35 @@
 
 <section class="features" id="features">
   <div class="container">
-    <h2 class="section-title">選ばれる理由</h2>
-    <p class="section-sub">訪問だからこそできる、寄り添いの施術</p>
+    <h2 class="section-title">あけぼの鍼灸マッサージ院が<br>選ばれる理由</h2>
+    <p class="section-sub">訪問だからこそできる、寄り添いの施術があります</p>
     <div class="feature-list">
       <div class="feature-item">
         <div class="feature-num">1</div>
         <div class="feature-text">
-          <h3>健康保険適用</h3>
-          <p>医師の同意書があれば、あはき療養費制度でご利用いただけます。初回のご相談時に必要書類についても詳しくご案内します。</p>
+          <h3>健康保険が使えます</h3>
+          <p>医師の同意書があれば、あはき療養費制度でご利用いただけます。書類の準備に不安がある方にも、初回のご相談時に一つひとつ丁寧にご案内しますので、ご安心ください。</p>
         </div>
       </div>
       <div class="feature-item">
         <div class="feature-num">2</div>
         <div class="feature-text">
-          <h3>ご自宅・施設へ訪問</h3>
-          <p>通院が困難な方のもとへお伺いします。移動の負担なく、慣れた環境でリラックスして施術を受けられます。</p>
+          <h3>ご自宅・施設へお伺いします</h3>
+          <p>通院が難しい方のもとへ、わたしたちが足を運びます。慣れた場所で受けられる安心感と、移動の負担がないことが、訪問施術の大きな魅力です。</p>
         </div>
       </div>
       <div class="feature-item">
         <div class="feature-num">3</div>
         <div class="feature-text">
-          <h3>国家資格者が担当</h3>
-          <p>あん摩マッサージ指圧師・はり師・きゅう師の有資格者が、お一人おひとりの状態に合わせた施術を行います。</p>
+          <h3>国家資格者が担当します</h3>
+          <p>あん摩マッサージ指圧師・はり師・きゅう師の有資格者が、お一人おひとりのお身体と向き合い、その日の状態にあわせた施術を行います。</p>
         </div>
       </div>
       <div class="feature-item">
         <div class="feature-num">4</div>
         <div class="feature-text">
-          <h3>ケアマネ様・施設様との連携</h3>
-          <p>介護施設やケアマネジャー様との情報共有を大切にし、包括的なケアをサポートします。</p>
+          <h3>ケアマネジャー様・施設様と連携</h3>
+          <p>介護施設や関わるすべての専門職の方と情報を共有し、チームで支えるケアを大切にしています。ご家族の安心につながるよう、こまやかにお伝えします。</p>
         </div>
       </div>
     </div>
@@ -379,22 +611,57 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="faq" id="faq">
   <div class="container">
-    <h2 class="section-title">お問い合わせ</h2>
-    <p class="section-sub">施術のご相談・採用のご応募、お気軽にどうぞ</p>
-    <div class="contact-info">
-      <p>お電話でのお問い合わせ</p>
-      <strong>000-0000-0000</strong>
-      <p style="margin-top:20px">受付時間：月〜金 9:00〜18:00</p>
-      <p style="margin-top:16px;font-size:.9rem;color:#8a7c68">※施術中はお電話に出られない場合があります<br>留守番電話にメッセージをお残しください</p>
+    <h2 class="section-title">よくあるご質問</h2>
+    <p class="section-sub">少しでも不安をやわらげられたら嬉しいです</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>はじめてですが、どんな服装がよいですか？</summary>
+        <div class="faq-answer">ご自宅でくつろげる、ゆったりとしたお洋服で大丈夫です。施術の際に触れる部分だけ出せるような服装だとスムーズです。必要に応じてタオル等で覆いながら行いますので、ご安心ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary>鍼（はり）は痛くないですか？</summary>
+        <div class="faq-answer">鍼は髪の毛ほどの細さで、チクッとする程度のものがほとんどです。痛みに敏感な方にもご利用いただけるよう、お声がけしながら進めていきます。どうしても不安な場合は、マッサージのみでのご利用も可能です。</div>
+      </details>
+      <details class="faq-item">
+        <summary>健康保険は本当に使えますか？</summary>
+        <div class="faq-answer">はい。歩行が困難で通院が難しい方は、医師の同意書を取得いただくことで、あはき療養費制度によりご利用いただけます。手続きについても丁寧にサポートいたしますので、ご安心ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary>家族が認知症ですが、対応してもらえますか？</summary>
+        <div class="faq-answer">もちろんです。これまでも認知症の方への施術経験があります。ご本人のペースに合わせ、落ち着ける環境づくりから大切にします。ご家族からのご相談も歓迎いたします。</div>
+      </details>
+      <details class="faq-item">
+        <summary>ケアマネジャーに相談してからでも大丈夫ですか？</summary>
+        <div class="faq-answer">もちろんです。ケアマネジャー様・訪問看護師様・ご家族など、さまざまな方からのご連絡を歓迎しております。チームでのケアを大切にしていますので、情報共有にも積極的に協力いたします。</div>
+      </details>
+      <details class="faq-item">
+        <summary>施術の時間はどれくらいですか？</summary>
+        <div class="faq-answer">施術自体は20〜30分ほどです。お身体の状態のご確認や、ご家族とのお話を含めて、30〜40分ほどのご訪問となります。初回はもう少しお時間をいただく場合があります。</div>
+      </details>
     </div>
   </div>
 </section>
 
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">お気軽にご連絡ください</h2>
+    <p class="section-sub">ご相談だけでも大丈夫です。お話を聞かせてください。</p>
+    <div class="contact-info">
+      <p>お電話でのお問い合わせ</p>
+      <strong>000-0000-0000</strong>
+      <p style="margin-top:20px">受付時間：月〜金 9:00〜18:00</p>
+      <p style="margin-top:16px;font-size:.9rem;color:#8a7c68">※施術中は電話に出られないことがございます。<br>留守番電話にメッセージをお残しいただければ、折り返しご連絡いたします。</p>
+    </div>
+    <p style="margin-top:32px;font-size:.95rem;color:var(--c-text-sub);line-height:2">「こんなこと相談してもいいのかな」と思われる内容でも、<br>どうぞお気軽にお声かけください。</p>
+  </div>
+</section>
+
 <footer>
-  <p>あけぼの鍼灸マッサージ院</p>
-  <p style="margin-top:8px">&copy; 2026 Akebono Acupuncture & Massage</p>
+  <p style="font-size:1.05rem;margin-bottom:6px;color:#e8d9bf">あけぼの鍼灸マッサージ院</p>
+  <p style="margin-top:4px;font-size:.82rem;opacity:.8">住み慣れた場所で、その方らしく。</p>
+  <p style="margin-top:20px;font-size:.8rem;opacity:.7">&copy; 2026 Akebono Acupuncture & Massage</p>
 </footer>
 
 <script>
