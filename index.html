@@ -274,12 +274,51 @@
   .recruit-box{
     background:rgba(255,255,255,.1);
     padding:36px 28px;border-radius:16px;
-    max-width:700px;margin:0 auto;
+    max-width:760px;margin:0 auto;
     backdrop-filter:blur(8px);
     border:1px solid rgba(255,255,255,.2);
   }
-  .recruit-box h3{font-size:1.3rem;margin-bottom:20px;text-align:center}
-  .recruit-list{list-style:none;margin-bottom:28px}
+  .recruit-catch{
+    font-size:1.15rem;font-weight:700;
+    text-align:center;margin-bottom:18px;line-height:1.6;
+  }
+  .recruit-lead{
+    font-size:.95rem;line-height:1.9;
+    color:#f5ecdb;margin-bottom:22px;
+  }
+  .recruit-lead p{margin-bottom:14px}
+  .recruit-pain{
+    list-style:none;margin:14px 0;padding:16px 20px;
+    background:rgba(0,0,0,.15);border-radius:12px;
+  }
+  .recruit-pain li{
+    padding:6px 0;font-size:.93rem;color:#f5ecdb;
+  }
+  .recruit-pain li::before{content:"・ ";color:#e8d9bf}
+  .recruit-message{
+    font-size:.95rem;line-height:1.9;
+    padding:18px 22px;
+    background:rgba(255,255,255,.08);
+    border-left:3px solid var(--c-accent);
+    border-radius:8px;margin:18px 0 26px;
+  }
+  .recruit-subhead{
+    font-size:1.05rem;font-weight:700;
+    margin:28px 0 14px;padding-bottom:8px;
+    border-bottom:1px solid rgba(255,255,255,.25);
+    color:#fff;
+  }
+  .recruit-check{list-style:none;margin-bottom:12px}
+  .recruit-check li{
+    padding:6px 0 6px 26px;position:relative;
+    font-size:.93rem;line-height:1.6;
+  }
+  .recruit-check li::before{
+    content:"✓";position:absolute;left:4px;top:6px;
+    color:#f5b841;font-weight:700;
+  }
+  .recruit-body{font-size:.93rem;line-height:1.8;margin-bottom:8px}
+  .recruit-list{list-style:none;margin-bottom:18px}
   .recruit-list li{
     padding:10px 0;
     border-bottom:1px solid rgba(255,255,255,.2);
@@ -287,11 +326,42 @@
   }
   .recruit-list li:last-child{border-bottom:none}
   .recruit-label{
-    flex-shrink:0;width:90px;
-    color:#e8d9bf;font-size:.9rem;
+    flex-shrink:0;width:110px;
+    color:#e8d9bf;font-size:.9rem;font-weight:600;
   }
-  .recruit-value{font-size:.95rem}
-  .recruit-cta{text-align:center}
+  .recruit-value{font-size:.93rem;line-height:1.6}
+  .recruit-pay{
+    padding:18px 20px;margin:10px 0 14px;
+    background:rgba(0,0,0,.15);border-radius:10px;
+  }
+  .recruit-pay-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.18);
+    gap:12px;flex-wrap:wrap;
+  }
+  .recruit-pay-row:last-child{border-bottom:none}
+  .recruit-pay-label{font-size:.9rem;color:#e8d9bf}
+  .recruit-pay-value{font-size:1rem;font-weight:700;color:#fff}
+  .recruit-pay-note{
+    font-size:.82rem;color:#d7c7a8;margin-top:10px;line-height:1.6;
+  }
+  .recruit-steps{
+    counter-reset:step;list-style:none;margin-bottom:12px;
+  }
+  .recruit-steps li{
+    counter-increment:step;
+    padding:8px 0 8px 38px;position:relative;
+    font-size:.93rem;
+  }
+  .recruit-steps li::before{
+    content:counter(step);
+    position:absolute;left:0;top:6px;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--c-accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.82rem;font-weight:700;
+  }
+  .recruit-cta{text-align:center;margin-top:28px}
 
   /* FAQ */
   .faq{background:var(--c-bg)}
@@ -597,36 +667,119 @@
 
 <section class="recruit" id="recruit">
   <div class="container">
-    <h2 class="section-title">一緒に働く仲間を<br>募集しています</h2>
-    <p class="section-sub">ケアの現場に、やさしさを添えてくださる方を探しています</p>
+    <h2 class="section-title">週1日・1件から<br>あなたのペースで働けます</h2>
+    <p class="section-sub">訪問マッサージ師募集（業務委託）｜横浜市緑区　女性代表の小さな訪問マッサージ院</p>
+
     <div class="recruit-box">
-      <h3>訪問マッサージ施術者（業務委託）</h3>
+      <p class="recruit-catch">「働きたいけど、がっつりはムリ」そんなあなたへ。</p>
+
+      <ul class="recruit-pain">
+        <li>「少しだけ働きたい」</li>
+        <li>「子どもの熱で急に休んでも大丈夫か不安」</li>
+        <li>「移動時間がもったいない」</li>
+        <li>「1件だけでもOKなら助かるのに」</li>
+        <li>「ブランクがあって技術が落ちてないか不安」</li>
+        <li>「社会とのつながりは持っていたい」</li>
+      </ul>
+
+      <div class="recruit-message">
+        私自身、産後にまったく同じことを感じていました。<br>
+        だから作りました。週1日・1件から、家の近くで、急な休みも大丈夫な働き場所を。<br><br>
+        小さな院だからこそ、無理なく長く続けていただける環境です。<br>
+        一緒にゆるく、でも丁寧に働きましょう。
+      </div>
+
+      <div class="recruit-subhead">こんな方にぴったりです</div>
+      <ul class="recruit-check">
+        <li>育児の合間にちょっとだけ働きたい</li>
+        <li>ブランクがあるけど復帰したい</li>
+        <li>扶養内で無理なく続けたい</li>
+        <li>急な休みも融通が利く環境がいい</li>
+        <li>移動時間を無駄にしたくない</li>
+        <li>ダブルワーク・副業として</li>
+      </ul>
+
+      <div class="recruit-subhead">仕事内容</div>
+      <p class="recruit-body">
+        横浜市緑区中山駅前の介護施設への訪問マッサージです。既存の患者様を担当していただきます。直行直帰なので移動も楽です。エリアは中山駅前の1施設のみなのでシンプルで安心です。<br>
+        国家資格保有者の代表が丁寧にサポートしますので、ブランクのある方も安心してください。
+      </p>
+
+      <div class="recruit-subhead">勤務条件</div>
       <ul class="recruit-list">
         <li>
-          <span class="recruit-label">資格</span>
-          <span class="recruit-value">あん摩マッサージ指圧師／はり師／きゅう師</span>
+          <span class="recruit-label">エリア</span>
+          <span class="recruit-value">横浜市緑区中山駅前（1施設のみ）</span>
         </li>
         <li>
           <span class="recruit-label">勤務日</span>
-          <span class="recruit-value">月・水・金（週1日〜応相談）</span>
+          <span class="recruit-value">週1日〜・曜日はご相談</span>
         </li>
         <li>
           <span class="recruit-label">勤務時間</span>
-          <span class="recruit-value">午前〜午後（応相談）</span>
+          <span class="recruit-value">9時〜18時の間でご希望の時間帯に</span>
         </li>
         <li>
-          <span class="recruit-label">勤務先</span>
-          <span class="recruit-value">ご利用者さまのご自宅・施設（訪問）</span>
+          <span class="recruit-label">件数</span>
+          <span class="recruit-value">1日1件〜スタートOK</span>
         </li>
         <li>
-          <span class="recruit-label">報酬</span>
-          <span class="recruit-value">レセプト単価に基づく業務委託（詳細応相談）</span>
-        </li>
-        <li>
-          <span class="recruit-label">特徴</span>
-          <span class="recruit-value">移動負担が少なく、ご自身のペースで働けます。未経験・ブランクある方歓迎。</span>
+          <span class="recruit-label">お休み</span>
+          <span class="recruit-value">急なお休みも柔軟に対応します</span>
         </li>
       </ul>
+
+      <div class="recruit-subhead">報酬</div>
+      <p class="recruit-body">業務委託　歩合率 60〜70%</p>
+      <div class="recruit-pay">
+        <div class="recruit-pay-row">
+          <span class="recruit-pay-label">マッサージのみ</span>
+          <span class="recruit-pay-value">1件 3,000円〜</span>
+        </div>
+        <div class="recruit-pay-row">
+          <span class="recruit-pay-label">マッサージ＋鍼灸</span>
+          <span class="recruit-pay-value">1件 3,900円〜</span>
+        </div>
+        <div class="recruit-pay-note">
+          ※ 保険請求額の60%を基準に算出しています<br>
+          ※ 信頼関係に応じて70%まで段階的に昇給します
+        </div>
+      </div>
+
+      <p class="recruit-body" style="margin-top:4px"><strong>収入例</strong></p>
+      <div class="recruit-pay">
+        <div class="recruit-pay-row">
+          <span class="recruit-pay-label">1日2件・週1回</span>
+          <span class="recruit-pay-value">月 約24,000円〜</span>
+        </div>
+        <div class="recruit-pay-row">
+          <span class="recruit-pay-label">1日3件・週2回</span>
+          <span class="recruit-pay-value">月 約72,000円〜</span>
+        </div>
+      </div>
+
+      <div class="recruit-subhead">交通費・諸経費</div>
+      <ul class="recruit-check">
+        <li>通勤交通費はご自身でご負担ください（中山駅近郊の方歓迎）</li>
+        <li>施設の無料駐車場（3台）を優先してご利用いただけます</li>
+        <li>満車時のパーキング代は院側で負担します</li>
+      </ul>
+
+      <div class="recruit-subhead">応募資格</div>
+      <ul class="recruit-check">
+        <li>あん摩マッサージ指圧師免許 保有者</li>
+        <li>ブランク可・育児中・ダブルワーク 大歓迎</li>
+      </ul>
+
+      <div class="recruit-subhead">選考プロセス</div>
+      <ol class="recruit-steps">
+        <li>ご応募（LINE公式より）</li>
+        <li>採用担当よりご連絡</li>
+        <li>オンラインまたは対面にて面談</li>
+        <li>採用決定</li>
+        <li>契約手続き</li>
+      </ol>
+
       <div class="recruit-cta">
         <a href="#contact" class="btn btn-accent">採用についてお問い合わせ</a>
       </div>
