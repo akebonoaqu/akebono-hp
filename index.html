@@ -8,15 +8,16 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --c-main:#8b6f47;
-    --c-sub:#c9a876;
-    --c-bg:#fdfaf3;
-    --c-bg-warm:#f7ede0;
-    --c-text:#3a332a;
-    --c-text-sub:#6b5e4a;
+    --c-main:#a56b76;
+    --c-sub:#e8b9b9;
+    --c-bg:#fdf5f3;
+    --c-bg-warm:#fae3df;
+    --c-text:#3a2e30;
+    --c-text-sub:#6b5a5e;
     --c-white:#fff;
-    --c-accent:#d97757;
-    --c-soft:#e9826a;
+    --c-accent:#d9656c;
+    --c-soft:#f08a90;
+    --c-border:#f0dad5;
   }
   html{scroll-behavior:smooth}
   body{
@@ -35,7 +36,7 @@
     position:sticky;top:0;z-index:100;
     background:rgba(250,247,242,.95);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid #eae3d6;
+    border-bottom:1px solid #f0dad5;
   }
   .header-inner{
     max-width:1100px;margin:0 auto;
@@ -50,17 +51,34 @@
 
   /* ヒーロー */
   .hero{
-    background:linear-gradient(135deg,#f7ede0 0%,#ecdcc0 60%,#e5d0ab 100%);
+    background:linear-gradient(135deg,#fae3df 0%,#f5d0cc 60%,#eeb9b9 100%);
     padding:90px 20px 100px;
     text-align:center;
     position:relative;
+    overflow:hidden;
   }
   .hero::before{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(ellipse at top,rgba(255,245,225,.5),transparent 60%);
+    background:radial-gradient(ellipse at top,rgba(255,240,238,.6),transparent 65%);
     pointer-events:none;
   }
-  .hero>*{position:relative}
+  .hero>*{position:relative;z-index:1}
+  /* 桜装飾 */
+  .hero-decor{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+  }
+  .hero-decor .petal{
+    position:absolute;
+    width:var(--size,28px);height:var(--size,28px);
+    opacity:var(--opacity,.45);
+    transform:rotate(var(--rot,0deg));
+  }
+  .hero-decor .circle{
+    position:absolute;border-radius:50%;
+    background:var(--c-soft);
+    opacity:var(--opacity,.15);
+    filter:blur(20px);
+  }
   .hero-lead{
     font-size:.95rem;color:var(--c-accent);
     margin-bottom:16px;letter-spacing:.2em;
@@ -74,13 +92,28 @@
     font-weight:600;
     letter-spacing:.04em;
   }
-  .hero .sub{font-size:1.02rem;margin-bottom:36px;color:#5a4f3f;line-height:2}
+  .hero .sub{font-size:1.02rem;margin-bottom:36px;color:#5a424a;line-height:2}
 
   /* 想い */
   .philosophy{
     background:var(--c-white);
     padding:90px 20px;
     text-align:center;
+  }
+  /* 画像バンド */
+  .image-band{
+    height:340px;
+    background-size:cover;background-position:center;
+    position:relative;
+  }
+  .image-band::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(253,245,243,.15) 0%,rgba(253,245,243,.05) 50%,rgba(253,245,243,.15) 100%);
+  }
+  .image-band.band-massage{background-image:url('assets/massage-back.jpg')}
+  .image-band.band-side{background-image:url('assets/massage-side.jpg')}
+  @media(max-width:720px){
+    .image-band{height:220px}
   }
   .philosophy-label{
     color:var(--c-accent);letter-spacing:.3em;
@@ -97,7 +130,7 @@
   .philosophy-close{
     margin-top:40px !important;
     padding-top:36px;
-    border-top:1px solid #ecdcc0;
+    border-top:1px solid #f0dad5;
     color:var(--c-main);font-weight:500;
   }
   .btn{
@@ -124,7 +157,7 @@
     letter-spacing:.04em;
     line-height:1.6;
   }
-  .section-sub{text-align:center;color:#8a7c68;margin-bottom:44px;font-size:.95rem;line-height:1.9}
+  .section-sub{text-align:center;color:#9c8085;margin-bottom:44px;font-size:.95rem;line-height:1.9}
 
   /* サービス */
   .services{background:var(--c-white)}
@@ -141,7 +174,14 @@
     transition:transform .2s;
   }
   .service-card:hover{transform:translateY(-4px)}
-  .service-icon{font-size:2.5rem;margin-bottom:12px}
+  .service-label{
+    display:inline-block;
+    color:var(--c-accent);letter-spacing:.15em;
+    font-size:.78rem;font-weight:500;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--c-border);
+  }
   .service-card h3{color:var(--c-main);margin-bottom:10px;font-size:1.1rem}
   .service-card p{font-size:.9rem;line-height:1.7}
 
@@ -210,7 +250,7 @@
   .flow-item:not(:last-child)::after{
     content:"";position:absolute;
     left:22px;top:68px;bottom:-4px;
-    width:1px;background:#ecdcc0;
+    width:1px;background:#f0dad5;
   }
   .flow-step{
     flex-shrink:0;
@@ -221,7 +261,7 @@
     display:flex;align-items:center;justify-content:center;
     font-weight:600;font-size:1.05rem;
     border:2px solid var(--c-white);
-    box-shadow:0 0 0 1px #ecdcc0;
+    box-shadow:0 0 0 1px #f0dad5;
     position:relative;z-index:1;
   }
   .flow-content h3{
@@ -262,11 +302,11 @@
     font-size:1.2rem;font-weight:700;color:var(--c-accent);
     margin:16px 0;line-height:1.5;
   }
-  .price-note{font-size:.85rem;color:#8a7c68;margin-top:16px}
+  .price-note{font-size:.85rem;color:#9c8085;margin-top:16px}
 
   /* 採用 */
   .recruit{
-    background:linear-gradient(135deg,#8b6f47 0%,#6b5435 100%);
+    background:linear-gradient(135deg,#8b5560 0%,#5f3945 100%);
     color:var(--c-white);
   }
   .recruit .section-title{color:var(--c-white)}
@@ -426,7 +466,7 @@
   .contact-footnote{
     margin-top:28px;padding-top:24px;
     border-top:1px solid #f0e6d2;
-    font-size:.88rem;color:#8a7c68;line-height:1.9;
+    font-size:.88rem;color:#9c8085;line-height:1.9;
   }
 
   /* フッター */
@@ -488,6 +528,16 @@
 </header>
 
 <section class="hero">
+  <div class="hero-decor" aria-hidden="true">
+    <svg class="petal" style="--size:42px;--opacity:.35;--rot:-20deg;top:12%;left:8%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 6 C38 18,52 22,52 36 C52 50,40 58,32 58 C24 58,12 50,12 36 C12 22,26 18,32 6 Z" fill="#f2a7ac"/><circle cx="32" cy="36" r="5" fill="#fde4e5"/></svg>
+    <svg class="petal" style="--size:26px;--opacity:.5;--rot:25deg;top:28%;left:18%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 6 C38 18,52 22,52 36 C52 50,40 58,32 58 C24 58,12 50,12 36 C12 22,26 18,32 6 Z" fill="#e88a91"/><circle cx="32" cy="36" r="5" fill="#fde4e5"/></svg>
+    <svg class="petal" style="--size:34px;--opacity:.4;--rot:-10deg;top:62%;left:6%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 6 C38 18,52 22,52 36 C52 50,40 58,32 58 C24 58,12 50,12 36 C12 22,26 18,32 6 Z" fill="#f5b8bd"/><circle cx="32" cy="36" r="5" fill="#fde4e5"/></svg>
+    <svg class="petal" style="--size:30px;--opacity:.5;--rot:45deg;top:18%;right:12%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 6 C38 18,52 22,52 36 C52 50,40 58,32 58 C24 58,12 50,12 36 C12 22,26 18,32 6 Z" fill="#e88a91"/><circle cx="32" cy="36" r="5" fill="#fde4e5"/></svg>
+    <svg class="petal" style="--size:40px;--opacity:.35;--rot:-30deg;top:70%;right:8%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 6 C38 18,52 22,52 36 C52 50,40 58,32 58 C24 58,12 50,12 36 C12 22,26 18,32 6 Z" fill="#f2a7ac"/><circle cx="32" cy="36" r="5" fill="#fde4e5"/></svg>
+    <svg class="petal" style="--size:22px;--opacity:.5;--rot:15deg;top:46%;right:20%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 6 C38 18,52 22,52 36 C52 50,40 58,32 58 C24 58,12 50,12 36 C12 22,26 18,32 6 Z" fill="#f5b8bd"/><circle cx="32" cy="36" r="5" fill="#fde4e5"/></svg>
+    <div class="circle" style="--opacity:.18;width:180px;height:180px;top:-40px;left:-40px"></div>
+    <div class="circle" style="--opacity:.14;width:260px;height:260px;bottom:-80px;right:-60px"></div>
+  </div>
   <p class="hero-lead">いつもの場所へ、お伺いします。</p>
   <h1>心にも、体にも、<br>そっと寄り添う時間を。</h1>
   <p class="sub">通院が難しい方のもとへお伺いする、訪問鍼灸マッサージ。<br>日々の暮らしの中に、ほっとできる時間をお届けします。<br>健康保険適用で、安心してご利用いただけます。</p>
@@ -505,6 +555,8 @@
     </div>
   </div>
 </section>
+
+<div class="image-band band-massage" aria-hidden="true"></div>
 
 <section class="promise" id="promise">
   <div class="container">
@@ -536,23 +588,25 @@
     <p class="section-sub">おひとりおひとりの状態に合わせて、やさしく行います</p>
     <div class="service-grid">
       <div class="service-card">
-        <div class="service-icon">🙌</div>
+        <span class="service-label">Massage</span>
         <h3>マッサージ</h3>
         <p>血行促進、筋肉の緊張をやわらげ、関節が動きやすくなるよう整えます。力加減は、その日のお身体に合わせて。</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🪡</div>
+        <span class="service-label">Acupuncture</span>
         <h3>はり治療</h3>
         <p>慢性的な痛みや神経痛に。髪の毛ほどの細さの鍼を使い、痛みが少ないよう丁寧に施術します。</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🔥</div>
+        <span class="service-label">Moxibustion</span>
         <h3>きゅう治療</h3>
         <p>冷えや血行不良に。じんわりとした温かさで、身体の内側からバランスを整えていきます。</p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="image-band band-side" aria-hidden="true"></div>
 
 <section class="flow" id="flow">
   <div class="container">
